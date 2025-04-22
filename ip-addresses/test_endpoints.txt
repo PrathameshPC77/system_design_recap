@@ -1,0 +1,13 @@
+✅ Test Endpoints
+
+Local IP:
+GET /api/get-ip/
+
+Validate IP:
+GET /api/validate-ip/?ip=192.168.1.1
+
+Resolve Domain:
+GET /api/resolve-domain/?domain=google.com
+
+Subnet Info:
+GET /api/subnet-info/?cidr=192.168.1.0/24
