@@ -1,0 +1,9 @@
+🧪 Test Your Endpoints
+
+You can now visit:
+
+http://localhost:8000/api/resolve/google.com/
+
+http://localhost:8000/api/dns-query/google.com/MX/
+
+http://localhost:8000/api/cached-resolve/google.com/
