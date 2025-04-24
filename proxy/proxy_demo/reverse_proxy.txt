@@ -1,0 +1,54 @@
+=> Reverse Proxy (Using Nginx)
+
+We’ll need nginx installed. Here’s a sample config:
+In /etc/nginx/sites-available/proxydemo (Linux):
+
+nginx
+server {
+    listen 80;
+
+    location / {
+        proxy_pass http://127.0.0.1:8000;  # Django server
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+    }
+}
+
+Enable the config:
+sudo ln -s /etc/nginx/sites-available/proxydemo /etc/nginx/sites-enabled
+sudo nginx -t
+sudo systemctl restart nginx
+
+Now go to http://localhost/ — it’s Nginx reverse proxying to Django!
+
+--------------------x------------------
+
+
+🔁 Flowchart: proxy
+
+START
+|
+├── 📁 Create Project Structure
+|      	- proxy_project/
+|          	├── proxy_client.py (Acts as Forward Proxy)
+|          	├── reverse_proxy/ (Django App)
+|              		├── views.py (Handles proxying)
+|              		├── urls.py
+|              		└── settings.py, wsgi.py, etc.
+|
+├── 🌐 Forward Proxy (proxy_client.py)
+|      	- Accepts target URL
+|      	- Uses `requests` module to fetch and forward response
+|      	- Acts as a middleman between user and destination
+|
+├── 🔄 Reverse Proxy (Django View)
+|      	- Receives client requests (e.g., /proxy/google)
+|      	- Forwards to backend (e.g., https://google.com)
+|      	- Returns response to client
+|
+├── 🔗 URL Routing (reverse_proxy/urls.py)
+|      	- /proxy/<path> ➜ reverse_proxy_view
+|
+└── ✅ Run & Test
+        - python proxy_client.py ➜ acts as forward proxy
+        - Django server ➜ acts as reverse proxy
