@@ -1,0 +1,32 @@
+=> URL	Functionality
+1. /api/latency/	Measures HTTP request latency
+2. /api/cache/	Returns cached response (in-memory)
+3. /api/simulate/	Starts a slow background task
+
+-----------x--------
+
+START
+ |
+ ├── 📁 Create Project & App
+ |      - django-admin startproject latency_project
+ |      - python manage.py startapp latency_app
+ |
+ ├── ⚙️ Setup Django & Add App
+ |      - Add 'latency_app' to INSTALLED_APPS
+ |
+ ├── 🔧 Utility Functions (latency_app/utils.py)
+ |      - measure_latency(url)  ➜ Calculates request round-trip time
+ |      - simulate_slow_response() ➜ Sleeps using threading (imitate async)
+ |
+ ├── 🧠 API Views (latency_app/views.py)
+ |      - /api/measure-latency/?url=...
+ |      - /api/simulate-slow/
+ |
+ ├── 🔗 URL Routing
+ |      - latency_app/urls.py ➜ View paths
+ |      - latency_project/urls.py ➜ include('latency_app.urls')
+ |
+ └── ✅ Test Endpoints
+        - GET /api/measure-latency/?url=https://google.com
+        - GET /api/simulate-slow/
+
