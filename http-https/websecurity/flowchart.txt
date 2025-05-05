@@ -1,0 +1,36 @@
+Access: http://localhost:8080
+
+---------
+
+⚡ Note: Locally, it will throw redirect issues because there's no SSL certificate.
+But on a real server (like Render, Vercel, or AWS with HTTPS), these settings enforce security properly!
+
+-----------x-----------
+
+START
+|
+├── 📁 Create Project & App
+|     	- django-admin startproject websecurity
+|     	- python manage.py startapp core
+|
+├── 📦 Install Django (if needed)
+|     	- pip install django
+|
+├── 🛠️ Create Simple Home View (core/views.py)
+|     	- home(request) ➜ returns "Hello World!"
+|
+├── 🔗 URL Routing
+|     	- core/urls.py ➜ Path for home
+|     	- websecurity/urls.py ➜ include('core.urls')
+|
+├── ▶️ Run Server (HTTP)
+|     	- python manage.py runserver
+|     	- Access: http://127.0.0.1:8000
+|
+├── 🛡️ Add HTTPS Security Settings (settings.py)
+|     	- SECURE_SSL_REDIRECT = True
+|     	- SESSION_COOKIE_SECURE = True
+|     	- CSRF_COOKIE_SECURE = True
+|
+└── ✅ Deploy on HTTPS Server (optional for real SSL)
+        - Platform handles SSL certificates
