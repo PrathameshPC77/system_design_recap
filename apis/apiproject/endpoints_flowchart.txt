@@ -1,0 +1,48 @@
+✅ Test:
+Open browser → http://localhost:8000/api/hello/
+
+-----------
+
+CRUD
+✅ Test Books API:
+POST/GET at: http://localhost:8000/api/books/
+
+---------x-------------
+
+📝 Short Theory
+Step	        |   Summary
+Start	        |   Create Django project + app
+Install	        |   Install DRF (Django REST Framework)
+Simple API	    |   Make a /api/hello/ API returning simple JSON
+CRUD API	    |   Make full CRUD on Book model
+URLs	        |   Map API URLs using Django path
+Testing	        |   Test using browser/Postman for GET/POST
+
+--------------
+
+📈 Flowchart (short)
+START
+  |
+  ├── 📁 Create Project & App
+  |       - django-admin startproject apiproject
+  |       - python manage.py startapp apiapp
+  |
+  ├── 📦 Install & Add DRF
+  |       - pip install djangorestframework
+  |       - Add to INSTALLED_APPS
+  |
+  ├── 🧠 Simple API
+  |       - /api/hello/ ➜ returns {"message": "Hello API!"}
+  |
+  ├── 📚 CRUD API (Book)
+  |       - Model ➜ Book (title, author)
+  |       - Serializer ➜ BookSerializer
+  |       - View ➜ ListCreateAPIView
+  |
+  ├── 🔗 URLs
+  |       - Map /api/hello/ and /api/books/
+  |
+  └── ✅ Test
+          - Browser/Postman
+
+
