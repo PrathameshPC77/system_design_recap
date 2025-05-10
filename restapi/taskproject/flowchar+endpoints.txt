@@ -1,0 +1,54 @@
+# endpoints
+🎯 API Endpoints:
+GET /api/tasks/ → List all tasks
+POST /api/tasks/ → Create new task
+GET /api/tasks/<id>/ → Retrieve a task
+PUT/PATCH /api/tasks/<id>/ → Update a task
+DELETE /api/tasks/<id>/ → Delete a task
+-----------------------------------------
+
+# flowchart 
+START
+|
+├── 📁 Create Project & App
+│ - django-admin startproject restapiproject
+│ - python manage.py startapp booksapi
+│
+├── 📦 Install & Configure DRF
+│ - pip install djangorestframework
+│ - Add 'rest_framework' and 'booksapi' to INSTALLED_APPS in settings.py
+│
+├── 🧩 Create Model (booksapi/models.py)
+│ - Create Book model ➔ fields: title, author, published_date, isbn
+│
+├── 🔄 Make Migrations
+│ - python manage.py makemigrations
+│ - python manage.py migrate
+│
+├── 🛠️ Create Serializer (booksapi/serializers.py)
+│ - BookSerializer for converting model ↔ JSON
+│
+├── 🧠 Create API Views (booksapi/views.py)
+│ - BookListCreateView ➔ List all books and Create new book
+│ - BookRetrieveUpdateDestroyView ➔ Retrieve, Update, Delete single book
+│
+├── 🔗 URL Routing
+│ - booksapi/urls.py ➔ Define API endpoints
+│ - restapiproject/urls.py ➔ include('booksapi.urls')
+│
+└── ✅ Test API Endpoints
+    - GET /api/books/ ➔ List all books
+    - POST /api/books/ ➔ Add a new book
+    - GET /api/books/<id>/ ➔ Get single book details
+    - PUT/PATCH /api/books/<id>/ ➔ Update book details
+    - DELETE /api/books/<id>/ ➔ Delete book
+
+
+-------------------x------------
+🔥 Short Description:
+We created a basic RESTful API to manage a Books database.
+Used Model → Serializer → View → URL structure.
+Supported full CRUD operations: Create, Read, Update, Delete.
+Learned about Class-based Views (CBV) using DRF’s generic views.
+
+---------------------------------
