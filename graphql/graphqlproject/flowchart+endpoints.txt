@@ -1,0 +1,54 @@
+-> flowchart
+
+START
+ |
+ ├── 📁 Create Project & App
+ |     	- django-admin startproject graphqlproject
+ |     	- python manage.py startapp graphqlapi
+ |
+ ├── 📦 Install & Add Libraries
+ |     	- pip install graphene-django
+ |     	- Add 'graphene_django', 'graphqlapi' to INSTALLED_APPS
+ |
+ ├── 🛠️ Models
+ |     	- Book model (title, author)
+ |
+ ├── 🧩 Create Schema (graphqlapi/schema.py)
+ |     	- BookType (DjangoObjectType)
+ |     	- Query (return all books)
+ |
+ ├── 🔗 URL Routing
+ |     	- Add path('graphql/', GraphQLView.as_view(graphiql=True)) in urls.py
+ |
+ └── ✅ Test with GraphiQL Interface
+       	- Visit http://localhost:8000/graphql/
+       	- Write Queries like:
+             {
+               books {
+                 title
+                 author
+               }
+             }
+
+---------------------------------
+
+✨ KEY POINTS:
+GraphQL:
+➔ Instead of multiple APIs, one endpoint handles multiple queries.
+➔ Client asks only the specific data it needs.
+
+Graphene-Django:
+➔ Library that integrates GraphQL with Django easily.
+
+GraphiQL Interface:
+➔ Built-in playground to test and visualize GraphQL queries in browser.
+
+Example Query:
+    graphql
+    {
+    books {
+        title
+        author
+    }
+    }
+➔ Server responds with only title and author fields for all books.
