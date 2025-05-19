@@ -1,0 +1,53 @@
+Test It
+Visit: http://localhost:8000/add/
+➝ Adds person to DB
+
+Visit: http://localhost:8000/list/
+➝ See stored data from DB
+
+
+--------------------------------------------------
+🔧 What Happened	        ✅ Why It’s Important
+makemigrations	            ORM → SQL table schema
+migrate	                    Executes SQL queries
+Person.objects.create(...)	INSERTs row in DB
+Person.objects.values()	    SELECTs rows
+
+✅ We didn't write SQL, but it used a database under the hood!
+
+
+-----------------------------
+
+flowchart
+
+Start
+ |
+ |---> Step 1: Install Django
+ |       - pip install django
+ |
+ |---> Step 2: Create Django Project
+ |       - django-admin startproject db_demo
+ |
+ |---> Step 3: Create App and Define Model
+ |       - python manage.py startapp people
+ |       - Create a model `Person` with name & age
+ |
+ |---> Step 4: Migrate the Database
+ |       - python manage.py makemigrations
+ |       - python manage.py migrate
+ |
+ |---> Step 5: Create Admin & Register Model
+ |       - python manage.py createsuperuser
+ |       - Register `Person` model in admin.py
+ |
+ |---> Step 6: Interact with Data via Admin UI
+ |       - Add/update people data in browser
+ |
+ |---> Step 7: View Data via Simple View/URL
+ |       - Create view that fetches all Person records
+ |
+ |---> Step 8: Run & Access
+ |       - python manage.py runserver
+ |       - Access: http://localhost:8000/
+ |
+End ✅
